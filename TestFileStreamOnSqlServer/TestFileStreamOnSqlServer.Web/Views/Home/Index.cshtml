@@ -1,0 +1,20 @@
+﻿@model TestFileStreamOnSqlServer.Web.Models.FileViewModel
+
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h1>Upload And Download File</h1>
+
+<form enctype="multipart/form-data" asp-action="Index" method="post" class="row g-3">
+    <div class="mb-3">
+        <label asp-for="Upload" class="form-label">Upload File To FileStream Database</label>
+        <input class="form-control" type="file" asp-for="Upload">
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+@if (Model is not null)
+{
+    <a href="Home/Download">@Model.Download.OriginalFileName</a>
+}
